@@ -33,7 +33,9 @@ pip install -r requirements.txt
 Create a file named `.env` in the `backend` directory with the following content:
 
 AWS_ACCESS_KEY_ID=
+
 AWS_SECRET_ACCESS_KEY=
+
 AWS_DEFAULT_REGION=
 
 Make sure to fill in your actual AWS credentials and region in the `.env` file.
