@@ -2,7 +2,7 @@
 
 This project demonstrates how to set up logging for a Django application with AWS CloudWatch using `watchtower`.
 
-Setup Instructions
+### Setup Instructions
 
 #### Step 1: Create a Virtual Environment
 
@@ -40,7 +40,7 @@ AWS_DEFAULT_REGION=
 
 Make sure to fill in your actual AWS credentials and region in the `.env` file.
 
-Running the Application
+#### Step 4: Running the Application
 
 After setting up the virtual environment, installing the requirements, and creating the `.env` file, you can run the Django application:
 
