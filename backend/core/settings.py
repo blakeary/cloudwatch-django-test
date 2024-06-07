@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 import boto3
+import watchtower
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -115,12 +116,12 @@ AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION")
 
-# Create a boto3 logs client
+# Create a boto3 logs client with certifi bundle
 boto3_logs_client = boto3.client(
     "logs",
+    region_name=AWS_DEFAULT_REGION,
     aws_access_key_id=AWS_ACCESS_KEY_ID,
     aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-    region_name=AWS_DEFAULT_REGION,
 )
 
 # Logging configuration
@@ -128,7 +129,7 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "root": {
-        "level": "DEBUG",
+        "level": "INFO",
         "handlers": ["watchtower", "console"],
     },
     "handlers": {
@@ -140,14 +141,19 @@ LOGGING = {
             "boto3_client": boto3_logs_client,
             "log_group_name": "django-test",
             "stream_name": "backend",
-            "level": "DEBUG",
+            "level": "INFO",
         },
     },
     "loggers": {
         "django": {
-            "level": "DEBUG",
-            "handlers": ["console"],
-            "propagate": False,
+            "level": "INFO",
+            "handlers": ["console", "watchtower"],
+            "propagate": True,
+        },
+        "__main__": {
+            "level": "INFO",
+            "handlers": ["console", "watchtower"],
+            "propagate": True,
         },
     },
 }
