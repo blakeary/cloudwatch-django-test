@@ -48,7 +48,7 @@ cd backend
 
 python manage.py runserver
 
-Verifying Logs
+#### Step 5: Verifying Logs
 
 To verify that logging is working, navigate to your application in a web browser (e.g., http://127.0.0.1:8000/cloudwatch/). Then, check the AWS CloudWatch log group `django-test` and the stream `backend` to see the logs.
 
