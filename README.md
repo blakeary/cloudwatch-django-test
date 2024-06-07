@@ -55,3 +55,5 @@ To verify that logging is working, navigate to your application in a web browser
 Additional Information
 
 For more information on setting up Django logging with AWS CloudWatch, refer to the official documentation for the watchtower library.
+
+https://pypi.org/project/watchtower/
