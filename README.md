@@ -52,7 +52,7 @@ python manage.py runserver
 
 To verify that logging is working, navigate to your application in a web browser (e.g., http://127.0.0.1:8000/cloudwatch/). Then, check the AWS CloudWatch log group `django-test` and the stream `backend` to see the logs.
 
-Additional Information
+#### Additional Information
 
 For more information on setting up Django logging with AWS CloudWatch, refer to the official documentation for the watchtower library.
 
